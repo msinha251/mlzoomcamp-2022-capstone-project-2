@@ -16,6 +16,7 @@ fastapi = "*"
 uvicorn = "*"
 tensorflow = "*"
 streamlit = "*"
+protobuf = "*"
 
 [dev-packages]
 

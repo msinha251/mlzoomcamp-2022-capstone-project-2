@@ -28,6 +28,11 @@ async def startup_event():
     logging.info("Loading model...")
     model = keras.models.load_model('./kitchenware-classification/models/model_kaggle.h5')
 
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the mlzoomcamp-2022-capstone-project-2 kitchenware classification API"}
+
 @app.post("/predict")
 async def predict(image: ImageDetails):
     logging.info(f"Predicting image: {image.image}")

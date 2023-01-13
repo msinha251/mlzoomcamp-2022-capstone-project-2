@@ -1,10 +1,14 @@
 # build a streamlit app to predict the image
-#
+
 import streamlit as st
 from train import predict_single
 import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# load the model
+from tensorflow import keras
+model = keras.models.load_model('./kitchenware-classification/models/model_kaggle.h5')
 
 def load_image():
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
@@ -22,8 +26,9 @@ def main():
     st.write("This is a simple image classification web app to predict the image.")
     load_image()
 
+
 def predict(image):
-    return predict_single(image, web=False)
+    return predict_single(image_url=image, model=model, web=False)
 
 if __name__ == '__main__':
     main()
