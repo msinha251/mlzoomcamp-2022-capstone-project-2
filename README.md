@@ -29,7 +29,7 @@ The project is structured as follows along with files and folders:
 * `Dockerfile` - docker file for the API and streamlit app
 * `main.py` - API file which will run the model and return the prediction for web image.
 * `streamlit.py` - streamlit app which will run the model and return the prediction for local image.
-* `README.md` - this files
+* `README.md` - Readme file
 
 # Training model:
 
@@ -58,6 +58,7 @@ curl -X 'POST' \
 
 ## Test with streamlit app:
 `pipenv run streamlit run app.py` - this will run the streamlit app locally on port 8501.
+Access the streamlit app on `http://localhost:8501/` in your browser.
 ![streamlit-app](./readme_img/streamlit-app.png)
 
 
