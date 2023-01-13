@@ -37,13 +37,28 @@ The project is structured as follows along with files and folders:
 NOTE: Make sure to download the [data](https://www.kaggle.com/competitions/kitchenware-classification/data?select=images) from Kaggle and put images folder under kitchenware-classification folder.
 * `pipenv run python train.py` - this will train the model and save it in the models folder.
 
-# Run API and streamlit app:
+# Test with Docker:
 
 ## Run Docker which will run the API and the streamlit app together:
 `docker run -p 8000:8000 -p 8501:8501 -it mahesh00000/mlzoomcamp-2022-capstone-project-2:latest`
 
+API:
+```
+curl -X 'POST' \
+  'http://localhost:8000/predict' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "image": "https://vistaalegre.com/eu/content/images/thumbs/0039972_us-perle-cn-garfo-de-mesa-perle.jpeg"
+}'
+```
 
-## Test the API with web image:
+Streamlit app:
+Access the streamlit app on <http://localhost:8501/> in your browser.
+
+# Run API and streamlit app locally:
+
+## Run & Test the API with web image:
 `pipenv run python -m uvicorn main:app`
 ```
 curl -X 'POST' \
@@ -56,7 +71,7 @@ curl -X 'POST' \
 ```
 ![test_api_local.png](./readme_img/test_api_local.png)
 
-## Test with streamlit app:
+## Run & Test with streamlit app:
 `pipenv run streamlit run app.py` - this will run the streamlit app locally on port 8501.
 Access the streamlit app on `http://localhost:8501/` in your browser.
 ![streamlit-app](./readme_img/streamlit-app.png)
